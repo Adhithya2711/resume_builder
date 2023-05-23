@@ -1,0 +1,42 @@
+.container{
+    min-width: 500px;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    box-shadow: 1px 1px 5px rgba(9, 44, 223, 0.331);
+    padding: 25px ;
+    padding-top: 10px;
+
+}
+
+.header{
+    display: flex;
+    gap: 20px;
+    overflow-x:auto;
+    border-bottom: 3px solid rgba(11, 25, 223, 0.1);
+    cursor: pointer;
+}
+
+.header :hover{
+    
+    color: darkgray;
+}
+
+.header .section{
+    padding: 10px;
+    border-bottom: 2px solid transparent;
+    font-weight:bolder;
+    font-size: 1rem;
+    white-space: nowrap;
+    
+     
+}
+
+.header .active{
+
+    border-bottom: 2px solid rgb(11, 203, 72);
+    color:rgb(9, 193, 92);
+
+}
+
