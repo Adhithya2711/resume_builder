@@ -1,11 +1,53 @@
 .container{
     display:flex ;
     flex-direction: column;
+    align-items: center;
     gap: 30px;
     padding: 30px;
+    padding-top: 0;
+    
 }
 
 .heading{
-    font-weight: bold;
-    font-size: 2.6rem;
+    font-weight:bold;
+    font-size: 3.1rem;
+    font-variant: small-caps;
+    
+    
+}
+
+.toolbar{
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.colors{
+    display: flex;
+    gap: 20px;
+    padding: 50px 30px;
+}
+
+.colors .color{
+    height: 35px;
+    width:35px;
+    border-radius: 50%;
+    background-color:#2b98d2;
+}
+
+.toolbar button{
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: rgb(92, 229, 158);
+    color:#fff;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    background-image:linear-gradient(to right,rgb(36, 206, 27),blue);
+    cursor:pointer;
+    
 }
