@@ -123,8 +123,8 @@ function Editor(props) {
             </div>
             <div className={styles.row}>
                 <InputControl
-                label="Portfolio Link"
-                placeholder="Enter your personalized portfolio link"/>
+                    label="Portfolio Link"
+                    placeholder="Enter your personalized portfolio link" />
             </div>
             <div className={styles.row}>
                 <InputControl
@@ -134,7 +134,7 @@ function Editor(props) {
                     label="Phone-Number"
                     placeholder="Enter your phone number" />
             </div>
-           
+
         </div>
     );
     const achievementsBody = (
@@ -167,23 +167,19 @@ function Editor(props) {
 
     const generateBody = () => {
 
-        switch(sections[activeSectionKey]){
-            case sections.basicInfo:return basicInfoBody;
-            case sections.workExp:return workExpBody;
-            case sections.project:return projectBody;
-            case sections.education:return educationBody;
-            case sections.achievement:return achievementsBody;
-            case sections.summary:return summaryBody;
-            case sections.other:return otherBody;
+        switch (sections[activeSectionKey]) {
+            case sections.basicInfo: return basicInfoBody;
+            case sections.workExp: return workExpBody;
+            case sections.project: return projectBody;
+            case sections.education: return educationBody;
+            case sections.achievement: return achievementsBody;
+            case sections.summary: return summaryBody;
+            case sections.other: return otherBody;
 
             default: return null;
         }
 
     };
-
-
-
-
 
     return (
         <div className={styles.container}>
