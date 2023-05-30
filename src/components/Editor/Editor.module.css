@@ -42,3 +42,30 @@
 
 }
 
+.body{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detail .row{
+    display: flex;
+    gap: 20px;
+}
+
+.detail .column{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.detail .row > div{
+    flex: 1;
+}

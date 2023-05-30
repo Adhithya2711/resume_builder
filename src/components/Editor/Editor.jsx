@@ -64,7 +64,7 @@ function Editor(props) {
 
             <div className={styles.row}>
                 <InputControl
-                    lable="Deployed Link"
+                    label="Deployed Link"
                     placeholder="Enter deployed link of project" />
                 <InputControl
                     label="Github Link"
@@ -195,6 +195,18 @@ function Editor(props) {
             </div>
             <div className={styles.body}>
                 <InputControl label="Title" placeholder="Enter section title" />
+
+                <div className={styles.chips}>
+                    <div className={styles.chip}>
+                        <p>Project 1</p>
+                       
+                    </div>
+                    <div className={styles.chip}>
+                        <p>Project 2</p>
+                        
+                    </div>
+
+                </div>
 
 
                 {generateBody()}
