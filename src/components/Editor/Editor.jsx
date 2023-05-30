@@ -196,7 +196,7 @@ function Editor(props) {
             <div className={styles.body}>
                 <InputControl label="Title" placeholder="Enter section title" />
 
-                <div className={styles.chips}>
+                {/* <div className={styles.chips}>
                     <div className={styles.chip}>
                         <p>Project 1</p>
                        
@@ -206,7 +206,7 @@ function Editor(props) {
                         
                     </div>
 
-                </div>
+                </div> */}
 
 
                 {generateBody()}
