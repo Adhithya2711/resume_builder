@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from './Body.module.css';
 import Editor from "../Editor/Editor";
@@ -54,7 +54,16 @@ function Body() {
             sectionTitle: sections.other,
             details: "",
         },
-    })
+    });
+
+    useEffect(()=>{
+        console.log(resumeInformation);
+
+    },[resumeInformation]);
+
+
+
+
     return(
         <div className={styles.container}>
             <p className={styles.heading}>Resume Builder</p>
