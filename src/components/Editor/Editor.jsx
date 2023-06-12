@@ -31,101 +31,101 @@ function Editor(props) {
 
     const handlePointUpdate = (value, index) => {
         const tempValues = { ...values };
-        if(!Array.isArray(tempValues.points))tempValues.points = [];
+        if (!Array.isArray(tempValues.points)) tempValues.points = [];
         tempValues.points[index] = value
         setValues(tempValues);
     }
 
 
-    const workExpBody = (
-        <div className={styles.detail}>
-            <div className={styles.row}>
-                <InputControl
+    // const workExpBody = (
+    //     <div className={styles.detail}>
+    //         <div className={styles.row}>
+    //             <InputControl
 
-                    label="Title"
-                    placeholder="Enter title eg. Fullstack Developer"
-                    value={values.title}
-                    onChange={(event) =>
-                        setValues((prev) => ({ ...prev, title: event.target.value })
-                        )
-                    }
-                />
-                <InputControl
-                    label="Company Name"
-                    placeholder="Enter company name eg. ZOHO"
-                    value={values.companyName}
-                    onChange={(event) =>
-                        setValues((prev) => ({ ...prev, companyName: event.target.value })
-                        )
-                    }
-                />
-            </div>
-            <div className={styles.row}>
-                <InputControl
-                    label="Certificate Link"
-                    placeholder="Enter certificate link "
-                    value={values.certificateLink}
-                    onChange={(event) =>
-                        setValues((prev) => ({ ...prev, certificateLink: event.target.value })
-                        )
-                    }
-                />
-                <InputControl
-                    label="Location"
-                    placeholder="Enter location eg. Remote"
-                    value={values.location}
-                    onChange={(event) =>
-                        setValues((prev) => ({ ...prev, location: event.target.value })
-                        )
-                    }
+    //                 label="Title"
+    //                 placeholder="Enter title eg. Fullstack Developer"
+    //                 value={values.title}
+    //                 onChange={(event) =>
+    //                     setValues((prev) => ({ ...prev, title: event.target.value })
+    //                     )
+    //                 }
+    //             />
+    //             <InputControl
+    //                 label="Company Name"
+    //                 placeholder="Enter company name eg. ZOHO"
+    //                 value={values.companyName}
+    //                 onChange={(event) =>
+    //                     setValues((prev) => ({ ...prev, companyName: event.target.value })
+    //                     )
+    //                 }
+    //             />
+    //         </div>
+    //         <div className={styles.row}>
+    //             <InputControl
+    //                 label="Certificate Link"
+    //                 placeholder="Enter certificate link "
+    //                 value={values.certificateLink}
+    //                 onChange={(event) =>
+    //                     setValues((prev) => ({ ...prev, certificateLink: event.target.value })
+    //                     )
+    //                 }
+    //             />
+    //             <InputControl
+    //                 label="Location"
+    //                 placeholder="Enter location eg. Remote"
+    //                 value={values.location}
+    //                 onChange={(event) =>
+    //                     setValues((prev) => ({ ...prev, location: event.target.value })
+    //                     )
+    //                 }
 
-                />
+    //             />
 
-            </div>
-            <div className={styles.row}>
-                <InputControl
-                    label="Start Date"
-                    type="date"
-                    placeholder="Enter start date of work"
-                    value={values.startDate}
-                    onChange={(event) =>
-                        setValues((prev) => ({ ...prev, startDate: event.target.value })
-                        )
-                    }
-                />
-                <InputControl
-                    label="End Date"
-                    type="date"
-                    placeholder="Enter end date of work"
-                    value={values.endDate}
-                    onChange={(event) =>
-                        setValues((prev) => ({ ...prev, endDate: event.target.value })
-                        )
-                    }
-                />
-            </div>
-            <div className={styles.column}>
-                <label>Enter work description</label>
-                <InputControl placeholder="Line 1"
-                    value={values.points ? values.points[0] : ""}
-                    onChange={(event) => handlePointUpdate(event.target.value, 0)}
+    //         </div>
+    //         <div className={styles.row}>
+    //             <InputControl
+    //                 label="Start Date"
+    //                 type="date"
+    //                 placeholder="Enter start date of work"
+    //                 value={values.startDate}
+    //                 onChange={(event) =>
+    //                     setValues((prev) => ({ ...prev, startDate: event.target.value })
+    //                     )
+    //                 }
+    //             />
+    //             <InputControl
+    //                 label="End Date"
+    //                 type="date"
+    //                 placeholder="Enter end date of work"
+    //                 value={values.endDate}
+    //                 onChange={(event) =>
+    //                     setValues((prev) => ({ ...prev, endDate: event.target.value })
+    //                     )
+    //                 }
+    //             />
+    //         </div>
+    //         {/* <div className={styles.column}>
+    //             <label>Enter work description</label>
+    //             <InputControl placeholder="Line 1"
+    //                 value={values.points ? values.points[0] : ""}
+    //                 onChange={(event) => handlePointUpdate(event.target.value, 0)}
 
-                />
-                <InputControl placeholder="Line 2"
-                    value={values.points ? values.points[1] : ""}
-                    onChange={(event) => handlePointUpdate(event.target.value, 1)}
-                />
-                <InputControl placeholder="Line 3"
-                    value={values.points ? values.points[2] : ""}
-                    onChange={(event) => handlePointUpdate(event.target.value, 2)}
-                />
-                <InputControl placeholder="Line 4"
-                    value={values.points ? values.points[3] : ""}
-                    onChange={(event) => handlePointUpdate(event.target.value, 3)}
-                />
-            </div>
-        </div>
-    );
+    //             />
+    //             <InputControl placeholder="Line 2"
+    //                 value={values.points ? values.points[1] : ""}
+    //                 onChange={(event) => handlePointUpdate(event.target.value, 1)}
+    //             />
+    //             <InputControl placeholder="Line 3"
+    //                 value={values.points ? values.points[2] : ""}
+    //                 onChange={(event) => handlePointUpdate(event.target.value, 2)}
+    //             />
+    //             <InputControl placeholder="Line 4"
+    //                 value={values.points ? values.points[3] : ""}
+    //                 onChange={(event) => handlePointUpdate(event.target.value, 3)}
+    //             />
+    //         </div> */}
+    //     </div>
+    // );
     const projectBody = (
         <div className={styles.detail}>
             <div className={styles.row}>
@@ -304,7 +304,7 @@ function Editor(props) {
             <div className={styles.column}>
                 <label>List your achievements</label>
                 <InputControl placeholder="Line 1"
-                value={values.points ? values.points[0] : ""}
+                    value={values.points ? values.points[0] : ""}
                     onChange={(event) => handlePointUpdate(event.target.value, 0)} />
                 <InputControl placeholder="Line 2"
                     value={values.points ? values.points[1] : ""}
@@ -352,7 +352,7 @@ function Editor(props) {
 
         switch (sections[activeSectionKey]) {
             case sections.basicInfo: return basicInfoBody;
-            case sections.workExp: return workExpBody;
+            // case sections.workExp: return workExpBody;
             case sections.project: return projectBody;
             case sections.education: return educationBody;
             case sections.achievement: return achievementsBody;
@@ -390,31 +390,31 @@ function Editor(props) {
                 ));
                 break;
             }
-            case sections.workExp: {
-                const tempDetail = {
-                    certificateLink: values.certificateLink,
-                    title: values.title,
-                    startDate: values.startDate,
-                    endDate: values.endDate,
-                    companyName: values.companyName,
-                    location: values.location,
-                    points: values.points,
+            // case sections.workExp: {
+            //     const tempDetail = {
+            //         certificateLink: values.certificateLink,
+            //         title: values.title,
+            //         startDate: values.startDate,
+            //         endDate: values.endDate,
+            //         companyName: values.companyName,
+            //         location: values.location,
+            //         points: values.points,
 
-                };
+            //     };
 
-                const tempDetails = [...information[sections.workExp]?.details];
-                tempDetails[activeDetailIndex] = tempDetail;
+            //     const tempDetails = information[sections.workExp]?.details;
+            //     tempDetails[activeDetailIndex] = tempDetail;
 
-                props.setInformation(prev => ({
-                    ...prev, [sections.workExp]
-                        : {
-                        ...prev[sections.workExp],
-                        details: tempDetail,
-                        sectionTitle,
-                    },
-                }));
-                break;
-            }
+            //     props.setInformation(prev => ({
+            //         ...prev, [sections.workExp]
+            //             : {
+            //             ...prev[sections.workExp],
+            //             details: tempDetail,
+            //             sectionTitle, 
+            //         },
+            //     }));
+            //     break;
+            // }
 
             case sections.project: {
                 const tempDetail = {
@@ -426,7 +426,7 @@ function Editor(props) {
 
                 };
 
-                const tempDetails = [...information[sections.project]?.details];
+                const tempDetails = information[sections.project]?.details;
                 tempDetails[activeDetailIndex] = tempDetail;
 
                 props.setInformation(prev => ({
@@ -506,97 +506,103 @@ function Editor(props) {
 
                 break;
             }
+
+            default:
+                return null;
         }
+        
     };
 
-                useEffect(() => {
+    useEffect(() => {
 
-                    const activeInfo = information[sections[activeSectionKey]];
+        const activeInfo = information[sections[activeSectionKey]];
 
-                    setActiveInformation(activeInfo);
-                    setSectionTitle(sections[activeSectionKey]);
-                    setActiveDetailIndex(0);
-                    setValues({
-                        name: activeInfo?.detail?.name || "",
-                        overview: activeInfo?.details ? activeInfo.details[0]?.overview || "" : "",
-                        link: activeInfo?.details ? activeInfo.details[0]?.link || "" : "",
-                        certificateLink: activeInfo?.details ? activeInfo.details[0]?.certificateLink || "" : "",
-                        companyName: activeInfo?.details ? activeInfo.details[0]?.companyName || "" : "",
-                        location: activeInfo?.details ? activeInfo.details[0]?.location || "" : "",
-                        startDate: activeInfo?.details ? activeInfo.details[0]?.startDate || "" : "",
-                        endDate: activeInfo?.details ? activeInfo.details[0]?.endDate || "" : "",
-                        points: activeInfo?.details ? activeInfo.details[0]?.points ?
-                            [...activeInfo.details[0]?.points] : ""
-                            : activeInfo?.points
-                                ? [...activeInfo.points]
-                                : "",
+        setActiveInformation(activeInfo);
+        setSectionTitle(sections[activeSectionKey]);
+        setActiveDetailIndex(0);
+        setValues({
+            name: activeInfo?.detail?.name || "",
+            overview: activeInfo?.details ? activeInfo.details[0]?.overview || "" : "",
+            link: activeInfo?.details ? activeInfo.details[0]?.link || "" : "",
+            certificateLink: activeInfo?.details ? activeInfo.details[0]?.certificateLink || "" : "",
+            // companyName: activeInfo?.details ? activeInfo.details[0]?.companyName || "" : "",
+            // location: activeInfo?.details ? activeInfo.details[0]?.location || "" : "",
+            startDate: activeInfo?.details ? activeInfo.details[0]?.startDate || "" : "",
+            endDate: activeInfo?.details ? activeInfo.details[0]?.endDate || "" : "",
+            points: activeInfo?.details ? activeInfo.details[0]?.points ?
+                [...activeInfo.details[0]?.points] : ""
+                : activeInfo?.points
+                    ? [...activeInfo.points]
+                    : "",
 
-                        title: activeInfo?.details ? activeInfo.details[0]?.title || ""
-                            : activeInfo?.details?.title || "",
-                        linkedin: activeInfo?.detail?.linkedin || "",
-                        github: activeInfo?.details ? activeInfo.details[0]?.github || ""
-                            : activeInfo?.details?.github || "",
-                        portfolio: activeInfo?.detail?.portfolio || "",
-                        phone: activeInfo?.detail?.phone || "",
-                        email: activeInfo?.detail?.email || "",
-                        summary: typeof activeInfo?.detail!==Object?activeInfo.detail:"",
-                        other: activeInfo?.detail!==Object?activeInfo.detail:"" ,
+            title: activeInfo?.details ? activeInfo.details[0]?.title || ""
+                : activeInfo?.details?.title || "",
+            linkedin: activeInfo?.detail?.linkedin || "",
+            github: activeInfo?.details ? activeInfo.details[0]?.github || ""
+                : activeInfo?.details?.github || "",
+            portfolio: activeInfo?.detail?.portfolio || "",
+            phone: activeInfo?.detail?.phone || "",
+            email: activeInfo?.detail?.email || "",
+            summary: typeof activeInfo?.detail !== Object ? activeInfo.detail : "",
+            other: activeInfo?.detail !== Object ? activeInfo.detail : "",
 
-                    });
-                }, [activeSectionKey]);
+        });
+    }, [activeSectionKey]);
 
-                return (
-                    <div className={styles.container}>
-                        <div className={styles.header}>
-                            {Object.keys(sections)?.map((key) =>
-                                <div className={`${styles.section} ${activeSectionKey === key ?
-                                    styles.active : ""}`}
-                                    key={key}
-                                    onClick={() => setActiveSectionKey(key)}
-                                >
-                                    {sections[key]}
-                                </div>)}
-                        </div>
-                        <div className={styles.body}>
-                            <InputControl label="Title" placeholder="Enter section title"
+   
 
-                                value={sectionTitle}
-                                onChange={(event) => setSectionTitle(event.target.value)}
+    return (
+        <div className={styles.container}>
+            <div className={styles.header}>
+                {Object.keys(sections)?.map((key) =>
+                    <div className={`${styles.section} ${activeSectionKey === key ?
+                        styles.active : ""}`}
+                        key={key}
+                        onClick={() => setActiveSectionKey(key)}
+                    >
+                        {sections[key]}
+                    </div>)}
+            </div>
+            <div className={styles.body}>
+                <InputControl label="Title" placeholder="Enter section title"
 
-                            />
+                    value={sectionTitle}
+                    onChange={(event) => setSectionTitle(event.target.value)}
 
-                            <div className={styles.chips}>
-                                {
-                                    activeInformation?.details ? activeInformation?.details?.map((item, index) => (
+                />
 
-                                        <div className={`${styles.chip}${activeDetailIndex === index ? styles.active : ""
-                                            }`} key={item.title + index}
-                                            onClick={() => setActiveDetailIndex(index)}
-                                        >
+                {/* <div className={styles.chips}>
+                    {
+                        activeInformation?.details ? activeInformation?.details?.map((item, index) => (
 
-                                            <p>
-                                                {sections[activeSectionKey]} {index = 1}
-                                            </p>
-                                            <FontAwesomeIcon icon={faXmark} />
-                                        </div>
+                            <div className={`${styles.chip}${activeDetailIndex === index ? styles.active : ""
+                                }`} key={item.title + index}
+                                onClick={() => setActiveDetailIndex(index)}
+                            >
 
-                                    )) : ""
-                                }
-
-
+                                <p>
+                                    {sections[activeSectionKey]} {index = 1}
+                                </p>
+                                <FontAwesomeIcon icon={faXmark} />
                             </div>
 
-
-                            {generateBody()}
-
-
-                            <button onClick={handleSubmission}>Save</button>
+                        )) : ""
+                    }
 
 
-                        </div>
-                    </div>
-                );
-        }
-    
+                </div> */}
 
-        export default Editor;
+
+                {generateBody()}
+
+
+                <button onClick={handleSubmission}>Save</button>
+
+
+            </div>
+        </div>
+    );
+}
+
+
+export default Editor;

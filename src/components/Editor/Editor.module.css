@@ -71,22 +71,22 @@
     flex: 1;
 }
 
-.chips{
+/* .chips{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-}
+} */
 
-.chip{
+/* .chip{
     display: flex;
     gap: 5px;
     align-items: center;
     padding: 4px 8px ;
     background-color: #808080;
     border-radius: 20px;
-}
+} */
 
-.chip p{
+/* .chip p{
     font-weight: 500;
     line-height: 1.25rem;
     letter-spacing: 1px;
@@ -102,7 +102,7 @@
 
 .chips .active{
     background-color: rgb(23, 208, 23);
-}
+} */
 
 .body button{
     width: fit-content;

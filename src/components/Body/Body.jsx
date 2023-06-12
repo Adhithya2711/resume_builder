@@ -10,7 +10,7 @@ function Body() {
     
     const sections = {
         basicInfo:"Basic Info",
-        workExp: "Work Experience",
+        // workExp: "Work Experience",
         project:"Projects",
         education:"Education",
         achievement:"Achievements",
@@ -24,11 +24,11 @@ function Body() {
             sectionTitle: sections.basicInfo,
             detail: {},
         },
-        [sections.workExp]: {
-            id: sections.workExp,
-            sectionTitle: sections.workExp,
-            details: [],
-        },
+        // [sections.workExp]: {
+        //     id: sections.workExp,
+        //     sectionTitle: sections.workExp,
+        //     details: [],
+        // },
         [sections.project]: {
             id: sections.project,
             sectionTitle: sections.project,
