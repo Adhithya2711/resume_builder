@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import styles from './Body.module.css';
 import Editor from "../Editor/Editor";
+import Resume from "../Resume/Resume";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -87,6 +88,8 @@ function Body() {
                 
                 setInformation = {setResumeInformation}
                 />
+
+                <Resume />
             </div>
         </div>
     )
