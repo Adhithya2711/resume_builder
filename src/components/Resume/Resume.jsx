@@ -21,67 +21,128 @@ function Resume(props) {
     const information = props.information;
     const sections = props.sections;
 
-    const [columns,setColumns] = useState([[],[]]);
+    const [columns, setColumns] = useState([[], []]);
+
+    const info = {
+
+        project: information[sections.project],
+        achievement: information[sections.achievement],
+        education: information[sections.education],
+        basicInfo: information[sections.basicInfo],
+        summary: information[sections.summary],
+        other: information[sections.other],
+
+    };
+
+    const getFormattedDate = (value) => {
+        if(!value) return "";
+        const date = new Date(value);
+        return`${date.getDate()}/${
+            date.getMonth() + 1 > 9 ? date.getMonth() + 1 : "0" + date.getMonth() + 1}/${date.getFullYear()
+        }`;
+    }
 
     const projectSection = (
         <div key={"project"} className={`${styles.section} ${styles.project}`}>
-            <div className={styles.sectionTitle}>Projects</div>
+            <div className={styles.sectionTitle}>{info.project.sectionTitle}</div>
             <div className={styles.content}>
-                <div className={styles.item}>
-                    <p className={styles.title}>Project </p>
-                    <a className={styles.link}>
-                    <img src={paperclipSvg} alt="PaperClip" />
-                    https://we4fwe4f.com/wefwsfe/wef
+                {
+                    info.project?.details?.map((item) => (
 
-                    </a>
-                    <a className={styles.link}>
-                    <img src={githubSvg} alt="GitHub" />
-                    https://github.com/wefwsfe/wef
+                        <div className={styles.item}>
+                            {item.title && <p className={styles.title}>{item.title} </p>}
+                            {item.link && (
 
-                    </a>
-                    <p className={styles.overview}>This project is a dummy project built with nothing.</p>
+                                <a className={styles.link} href={item.link}>
+                                    <img src={paperclipSvg} alt="PaperClip" />
+                                    {item.link}
 
-                    <ul className={styles.points}>
-                        <li className={styles.point}>It is point one</li>
-                        <li className={styles.point}>It is point two</li>
-                        <li className={styles.point}>It is point three</li>
-                        <li className={styles.point}>It is point four</li>
-                    </ul>
-                </div>
+                                </a>
+
+                            )}
+                            {item.github && (
+
+                                <a className={styles.link} href={item.github}>
+                                    <img src={githubSvg} alt="GitHub" />
+                                    {item.github}
+
+                                </a>
+
+                            )}
+                            {item.overview && (
+
+                                <p className={styles.overview} >{item.overview}</p>
+
+                            )}
+
+                            {item.points?.length > 0 && (
+                                <ul className={styles.points}>
+                                    {item.points?.map((elem, index) => (
+                                        <li className={styles.point} key={elem + index}>
+                                            {elem}
+
+                                        </li>
+
+                                    ))}
+
+                                </ul>
+
+                            )}
+
+                        </div>
+
+                    ))
+                }
+
             </div>
         </div>
     );
     const educationSection = (
         <div key={"education"} className={`${styles.section} ${styles.education}`}>
-            <div className={styles.sectionTitle}>Education</div>
+            <div className={styles.sectionTitle}>{info.education?.sectionTitle}</div>
             <div className={styles.content}>
-                <div className={styles.item}>
-                    <p className={styles.title}>B.tech </p>
-                    <p className={styles.subTitle}>
-                        Some college name
-                    </p>
-                    <div className={styles.date}>
-                    <img src={calendarSvg} alt="Calendar" />
-                    12/07/2021 - 2/02/2022
+                {
+                    info.education?.details?.map((item) => (
+                        <div className={styles.item}>
+                            {
+                                item.title &&
+                                <p className={styles.title}>{item.title} </p>
+                            }
+                            {
+                                item.college &&
+                                <p className={styles.subTitle}>
+                                    Some college name
+                                </p>
+                            }
+                            {
+                                item.startDate && item.endDate &&
+                                <div className={styles.date}>
+                                    <img src={calendarSvg} alt="Calendar" />{" "}
+                                    {getFormattedDate(item.startDate) -
+                                    getFormattedDate(item.endDate)}
+                                
+                                </div>
+                            }
 
-                    </div>
-                    
-                </div>
+                        </div>
+
+                    ))}
+
             </div>
         </div>
     );
     const achievementSection = (
-        <div key = {"achievement"}className={`${styles.section} ${styles.achievement}`}>
+        <div key={"achievement"} className={`${styles.section} ${styles.achievement}`}>
             <div className={styles.sectionTitle}>Achievements</div>
             <div className={styles.content}>
-            <ul className={styles.numbered}>
-                <li>Achievement 1</li>
-                <li>Achievement 2</li>
-                <li>Achievement 3</li>
-                <li>Achievement 4</li>
-                <li>Achievement 5</li>
-            </ul>
-        </div>
+                <ul className={styles.numbered}>
+                    <li>Achievement 1</li>
+                    <li>Achievement 2</li>
+                    <li>Achievement 3</li>
+                    <li>Achievement 4</li>
+                    <li>Achievement 5</li>
+                </ul>
+            </div>
         </div>
     );
     const summarySection = (
@@ -95,7 +156,7 @@ function Resume(props) {
         </div>
     );
     const otherSection = (
-        <div  key={"other"}className={`${styles.section} ${styles.other}`}>
+        <div key={"other"} className={`${styles.section} ${styles.other}`}>
             <div className={styles.sectionTitle}>Other</div>
             <div className={styles.content}>
                 <div className={styles.overview}>
@@ -109,17 +170,17 @@ function Resume(props) {
 
 
 
-        useEffect(()=>{
+    useEffect(() => {
 
-            setColumns([
-                [
-                    educationSection,projectSection,summarySection
-                ],
-                [
-                    achievementSection,otherSection
-                ],
-            ]);
-        },[]);
+        setColumns([
+            [
+                educationSection, projectSection, summarySection
+            ],
+            [
+                achievementSection, otherSection
+            ],
+        ]);
+    }, []);
 
 
 
