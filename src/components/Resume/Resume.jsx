@@ -133,15 +133,20 @@ function Resume(props) {
     );
     const achievementSection = (
         <div key={"achievement"} className={`${styles.section} ${styles.achievement}`}>
-            <div className={styles.sectionTitle}>Achievements</div>
+            <div className={styles.sectionTitle}>{info.achievement?.sectionTitle}</div>
             <div className={styles.content}>
-                <ul className={styles.numbered}>
-                    <li>Achievement 1</li>
-                    <li>Achievement 2</li>
-                    <li>Achievement 3</li>
-                    <li>Achievement 4</li>
-                    <li>Achievement 5</li>
-                </ul>
+                {info.achievement?.points?.length > 0 && (
+                    <ul className={styles.points}>
+                        {
+                            info.achievement?.points?.map((elem, index) => (
+                                <li className={styles.point} key={elem + index}>
+                                    {elem}
+                                </li>
+                            ))}
+                            </ul>
+
+                )}
+                
             </div>
         </div>
     );
