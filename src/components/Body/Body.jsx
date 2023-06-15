@@ -87,9 +87,10 @@ function Body() {
                 information={resumeInformation}
                 
                 setInformation = {setResumeInformation}
-                />
+                
+               />
 
-                <Resume />
+                <Resume sections={sections} information={resumeInformation}/>
             </div>
         </div>
     )
