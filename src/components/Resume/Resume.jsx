@@ -16,6 +16,7 @@ import calendarSvg from "./calendar.svg";
 
 import { useEffect } from "react";
 
+
 function Resume(props) {
 
     const information = props.information;
@@ -35,14 +36,14 @@ function Resume(props) {
     };
 
     const getFormattedDate = (value) => {
-        if(!value) return "";
+        if (!value) return "";
         const date = new Date(value);
-        return`${date.getDate()}/${
-            date.getMonth() + 1 > 9 ? date.getMonth() + 1 : "0" + date.getMonth() + 1}/${date.getFullYear()
-        }`;
-    }
+        return `${date.getDate()}/${date.getMonth() + 1 > 9 ? date.getMonth() + 1 : "0" + date.getMonth() + 1}/${date.getFullYear()
+            }`;
+    };
 
-    const projectSection = (
+    const sectionDiv = {
+        [sections.project]:(
         <div key={"project"} className={`${styles.section} ${styles.project}`}>
             <div className={styles.sectionTitle}>{info.project.sectionTitle}</div>
             <div className={styles.content}>
@@ -96,99 +97,92 @@ function Resume(props) {
 
             </div>
         </div>
-    );
-    const educationSection = (
+        ),
+        [sections.education]:(
         <div key={"education"} className={`${styles.section} ${styles.education}`}>
-            <div className={styles.sectionTitle}>{info.education?.sectionTitle}</div>
-            <div className={styles.content}>
-                {
-                    info.education?.details?.map((item) => (
-                        <div className={styles.item}>
-                            {
-                                item.title &&
-                                <p className={styles.title}>{item.title} </p>
-                            }
-                            {
-                                item.college &&
-                                <p className={styles.subTitle}>
-                                    Some college name
-                                </p>
-                            }
-                            {
-                                item.startDate && item.endDate &&
-                                <div className={styles.date}>
-                                    <img src={calendarSvg} alt="Calendar" />{" "}
-                                    {getFormattedDate(item.startDate) -
-                                    getFormattedDate(item.endDate)}
-                                
-                                </div>
-                            }
-
-                        </div>
-
-                    ))}
-
-            </div>
-        </div>
-    );
-    const achievementSection = (
-        <div key={"achievement"} className={`${styles.section} ${styles.achievement}`}>
-            <div className={styles.sectionTitle}>{info.achievement?.sectionTitle}</div>
-            <div className={styles.content}>
-                {info.achievement?.points?.length > 0 && (
-                    <ul className={styles.points}>
+        <div className={styles.sectionTitle}>{info.education?.sectionTitle}</div>
+        <div className={styles.content}>
+            {
+                info.education?.details?.map((item) => (
+                    <div className={styles.item}>
                         {
-                            info.achievement?.points?.map((elem, index) => (
-                                <li className={styles.point} key={elem + index}>
-                                    {elem}
-                                </li>
-                            ))}
-                            </ul>
+                            item.title &&
+                            <p className={styles.title}>{item.title} </p>
+                        }
+                        {
+                            item.college &&
+                            <p className={styles.subTitle}>
+                                Some college name
+                            </p>
+                        }
+                        {
+                            item.startDate && item.endDate &&
+                            <div className={styles.date}>
+                                <img src={calendarSvg} alt="Calendar" />{" "}
+                                {getFormattedDate(item.startDate) -
+                                    getFormattedDate(item.endDate)}
 
-                )}
-                
-            </div>
-        </div>
-    );
-    const summarySection = (
-        <div key={"summary"} className={`${styles.section} ${styles.summary}`}>
-            <div className={styles.sectionTitle}>Summary</div>
-            <div className={styles.content}>
-                <div className={styles.overview}>
-                    This is dummy basic summary.
-                </div>
-            </div>
-        </div>
-    );
-    const otherSection = (
-        <div key={"other"} className={`${styles.section} ${styles.other}`}>
-            <div className={styles.sectionTitle}>Other</div>
-            <div className={styles.content}>
-                <div className={styles.overview}>
-                    This is dummy data... other
-                </div>
-            </div>
+                            </div>
+                        }
+
+                    </div>
+
+                ))}
 
         </div>
-    );
+    </div>
+    ),
+    [sections.achievement]:(
+    <div key={"achievement"} className={`${styles.section} ${styles.achievement}`}>
+    <div className={styles.sectionTitle}>{info.achievement?.sectionTitle}</div>
+    <div className={styles.content}>
+        {info.achievement?.points?.length > 0 && (
+            <ul className={styles.points}>
+                {
+                    info.achievement?.points?.map((elem, index) => (
+                        <li className={styles.point} key={elem + index}>
+                            {elem}
+                        </li>
+                    ))}
+            </ul>
 
+        )}
 
+    </div>
+</div>
+),
+[sections.summary]:(
+<div key={"summary"} className={`${styles.section} ${styles.summary}`}>
+<div className={styles.sectionTitle}>{info.summary?.sectionTitle}</div>
+<div className={styles.content}>
+    <p className={styles.overview}>{info.summary?.summary}</p>
+</div>
+</div>
+),
+[sections.other]:(
+<div key={"other"} className={`${styles.section} ${styles.other}`}>
+<div className={styles.sectionTitle}>{info.other?.sectionTitle} </div>
+<div className={styles.content}>
+    <p className={styles.overview}>{info.other?.other}
+    </p>
+</div>
+
+</div>),
+    };
+
+    
 
 
     useEffect(() => {
 
         setColumns([
             [
-                educationSection, projectSection, summarySection
-            ],
+                sections.education, sections.project, sections.summary ],
             [
-                achievementSection, otherSection
+                sections.achievement, sections.other
             ],
         ]);
     }, []);
-
-
-
 
 
     return (
@@ -209,12 +203,12 @@ function Resume(props) {
             <div className={styles.main}>
                 <div className={styles.col1}>
                     {
-                        columns[0]
+                        columns[0].map((item) => sectionDiv[item])
                     }
 
                 </div>
                 <div className={styles.col2}>
-                    {columns[1]}
+                    {columns[1].map((item) => sectionDiv[item])}
                 </div>
             </div>
 
@@ -223,3 +217,4 @@ function Resume(props) {
 }
 
 export default Resume;
+
